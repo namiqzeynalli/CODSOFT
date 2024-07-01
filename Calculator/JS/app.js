@@ -6,8 +6,10 @@ let string = "";
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         if (e.target.innerText == "=") {
-            string = String(eval(string));
-            inputBox.value = string;
+            if (inputBox.value != "0") {
+                string = String(eval(string));
+                inputBox.value = string;
+            }
         }
         else if (e.target.innerText == "AC") {
             string = "";
@@ -18,8 +20,10 @@ buttons.forEach((button) => {
             inputBox.value = string;
         }
         else if (e.target.id == "opposite") {
-            string = String(-eval(string));
-            inputBox.value = string;
+            if (inputBox.value != "0") {
+                string = String(-eval(string));
+                inputBox.value = string;
+            }
         }
         else {
             string += e.target.innerText;
